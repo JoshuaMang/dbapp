@@ -1,24 +1,31 @@
 import logo from './logo.svg';
 import './App.css';
+import Art_Piece from './components/artpiece';
+import Navbar from './components/navbar';
+import Art_Piece_Archive from './components/artpiecearchive';
+import Customer_Info from './components/Customer';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route,
+  Link
+} from "react-router-dom";
+import Department from './components/department';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <Navbar/>
+      <Routes>
+      <Route path='/artpiece' exact component={Art_Piece} />
+        <Route path='/artpiecearchive' component={Art_Piece_Archive} />
+        <Route path='/Customer' component={Customer_Info} />
+        <Route path='/department' component={Department} />
+       
+        </Routes>
+    </Router>
+
+       
   );
 }
 
